@@ -1,0 +1,110 @@
+[
+  {
+    "Hitbox": true,
+    "Damaging": false,
+    "Jump boost": false,
+    "Speed boost": false,
+    "Decaying": false,
+    "Color": "Black",
+    "Start X": 1182,
+    "End X": 1248,
+    "Start Y": 303,
+    "End Y": 359
+  },
+  {
+    "Hitbox": true,
+    "Damaging": false,
+    "Jump boost": false,
+    "Speed boost": false,
+    "Decaying": true,
+    "Color": "Orange",
+    "Start X": 1051,
+    "End X": 1146,
+    "Start Y": 325,
+    "End Y": 377
+  },
+  {
+    "Hitbox": false,
+    "Damaging": false,
+    "Jump boost": false,
+    "Speed boost": false,
+    "Decaying": false,
+    "Color": "Gray",
+    "Start X": 919,
+    "End X": 1002,
+    "Start Y": 358,
+    "End Y": 413
+  },
+  {
+    "Hitbox": true,
+    "Damaging": true,
+    "Jump boost": false,
+    "Speed boost": false,
+    "Decaying": false,
+    "Color": "Red",
+    "Start X": 894,
+    "End X": 975,
+    "Start Y": 457,
+    "End Y": 565
+  },
+  {
+    "Hitbox": true,
+    "Damaging": false,
+    "Jump boost": true,
+    "Speed boost": false,
+    "Decaying": false,
+    "Color": "Green",
+    "Start X": 671,
+    "End X": 830,
+    "Start Y": 467,
+    "End Y": 584
+  },
+  {
+    "Hitbox": true,
+    "Damaging": false,
+    "Jump boost": false,
+    "Speed boost": true,
+    "Decaying": false,
+    "Color": "Blue",
+    "Start X": 610,
+    "End X": 674,
+    "Start Y": 349,
+    "End Y": 417
+  },
+  {
+    "Hitbox": true,
+    "Damaging": false,
+    "Jump boost": false,
+    "Speed boost": true,
+    "Decaying": false,
+    "Color": "Blue",
+    "Start X": 1154,
+    "End X": 1234,
+    "Start Y": 459,
+    "End Y": 581
+  },
+  {
+    "Hitbox": true,
+    "Damaging": false,
+    "Jump boost": false,
+    "Speed boost": false,
+    "Decaying": false,
+    "Color": "Black",
+    "Start X": 165,
+    "End X": 297,
+    "Start Y": 520,
+    "End Y": 618
+  },
+  {
+    "Hitbox": true,
+    "Damaging": false,
+    "Jump boost": false,
+    "Speed boost": false,
+    "Decaying": false,
+    "Color": "Black",
+    "Start X": 72,
+    "End X": 139,
+    "Start Y": 48,
+    "End Y": 147
+  }
+]
