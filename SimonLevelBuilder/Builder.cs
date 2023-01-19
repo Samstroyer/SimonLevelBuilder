@@ -15,13 +15,13 @@ public class Builder
 
     public Builder()
     {
-        // int tempX, tempY;
-        // Console.WriteLine("Enter Map Width:");
-        // tempX = int.Parse(Console.ReadLine());
-        // Console.WriteLine("Enter Map Height:");
-        // tempY = int.Parse(Console.ReadLine());
+        int tempX, tempY;
+        Console.WriteLine("Enter Map Width:");
+        tempX = int.Parse(Console.ReadLine());
+        Console.WriteLine("Enter Map Height:");
+        tempY = int.Parse(Console.ReadLine());
 
-        // levelSize = new(tempX, tempY);
+        levelSize = new(tempX, tempY);
     }
 
     public void Start()
