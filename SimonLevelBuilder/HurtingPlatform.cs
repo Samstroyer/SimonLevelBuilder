@@ -5,7 +5,7 @@ public class HurtingPlatform : PlatformBase
 
     public HurtingPlatform(Vector2 start, Vector2 end) : base(start, end)
     {
-        colorName = "Red";
+        ColorName = "Red";
         col = Raylib_cs.Color.RED;
         Damages = true;
     }

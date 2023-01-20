@@ -5,7 +5,7 @@ public class FalsePlatform : PlatformBase
 
     public FalsePlatform(Vector2 start, Vector2 end) : base(start, end)
     {
-        colorName = "Gray";
+        ColorName = "Gray";
         col = Raylib_cs.Color.GRAY;
         HasHitbox = false;
     }

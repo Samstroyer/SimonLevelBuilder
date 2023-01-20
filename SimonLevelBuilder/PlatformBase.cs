@@ -16,15 +16,15 @@ public abstract class PlatformBase
     [JsonPropertyName("Decaying")]
     public bool Decaying { get; set; } = false;
     [JsonPropertyName("Color")]
-    public string colorName { get; set; }
+    public string ColorName { get; set; }
     [JsonPropertyName("Start X")]
-    public int startX { get; set; }
+    public int StartX { get; set; }
     [JsonPropertyName("End X")]
-    public int endX { get; set; }
+    public int Width { get; set; }
     [JsonPropertyName("Start Y")]
-    public int startY { get; set; }
+    public int StartY { get; set; }
     [JsonPropertyName("End Y")]
-    public int endY { get; set; }
+    public int Height { get; set; }
 
     public Vector2 EndPosition;
     public Vector2 StartPosition;
@@ -44,17 +44,18 @@ public abstract class PlatformBase
         StartPosition = lowValues;
         EndPosition = highValues;
 
-        startX = (int)lowValues.X;
-        endX = (int)highValues.X;
+        StartX = (int)lowValues.X;
+        Width = (int)highValues.X;
 
-        startY = (int)lowValues.Y;
-        endY = (int)highValues.Y;
+        StartY = (int)lowValues.Y;
+        Height = (int)highValues.Y;
 
         rectangle = new(lowValues.X, lowValues.Y, highValues.X - lowValues.X, highValues.Y - lowValues.Y);
     }
 
-    public void Render()
+    public void Render(Vector2 cameraOffset)
     {
-        Raylib.DrawRectangleRec(rectangle, col);
+        Rectangle temp = new(rectangle.x - cameraOffset.X, rectangle.y - cameraOffset.Y, rectangle.width, rectangle.height);
+        Raylib.DrawRectangleRec(temp, col);
     }
 }

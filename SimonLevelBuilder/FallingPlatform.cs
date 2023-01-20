@@ -5,7 +5,7 @@ public class FallingPlatform : PlatformBase
 
     public FallingPlatform(Vector2 start, Vector2 end) : base(start, end)
     {
-        colorName = "Orange";
+        ColorName = "Orange";
         col = Raylib_cs.Color.ORANGE;
         Decaying = true;
     }

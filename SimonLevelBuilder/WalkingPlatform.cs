@@ -5,7 +5,7 @@ public class WalkingPlatform : PlatformBase
 
     public WalkingPlatform(Vector2 start, Vector2 end) : base(start, end)
     {
-        colorName = "Black";
+        ColorName = "Black";
         col = Raylib_cs.Color.BLACK;
     }
 }

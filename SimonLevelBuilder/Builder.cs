@@ -3,7 +3,7 @@ using Raylib_cs;
 
 public class Builder
 {
-    Vector2 cameraOffset;
+    Vector2 cameraOffset = new();
     Vector2 levelSize;
     Vector2 tempPosition;
     bool placing = false;
@@ -31,6 +31,8 @@ public class Builder
             Raylib.BeginDrawing();
             Raylib.ClearBackground(Color.WHITE);
 
+            Raylib.DrawRectangle(0 - (int)cameraOffset.X, 0 - (int)cameraOffset.Y, (int)levelSize.X, (int)levelSize.Y, Color.BROWN);
+
             KeyboardKey key = (KeyboardKey)Raylib.GetKeyPressed();
 
             if (Raylib.IsMouseButtonPressed(MouseButton.MOUSE_BUTTON_LEFT)) Pressed();
@@ -41,6 +43,10 @@ public class Builder
             if (key == KeyboardKey.KEY_RIGHT) SwitchCurrent(1);
 
             if (key == KeyboardKey.KEY_S) Serialise();
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_A)) Move(new(-10, 0));
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_D)) Move(new(10, 0));
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_W)) Move(new(0, -10));
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_S)) Move(new(0, 10));
 
             List<PlatformBase> temp = new();
             temp.AddRange(container.fallingPlatforms);
@@ -52,11 +58,21 @@ public class Builder
 
             foreach (var p in temp)
             {
-                p.Render();
+                p.Render(cameraOffset);
             }
 
             Raylib.EndDrawing();
         }
+    }
+
+    private void Move(Vector2 dir)
+    {
+        cameraOffset += dir;
+        if (cameraOffset.X < 0) cameraOffset.X = 0;
+        if (cameraOffset.Y < 0) cameraOffset.Y = 0;
+
+        if (cameraOffset.X + Raylib.GetScreenWidth() > levelSize.X) cameraOffset.X = levelSize.X - Raylib.GetScreenWidth();
+        if (cameraOffset.Y + Raylib.GetScreenHeight() > levelSize.Y) Console.WriteLine("test");//cameraOffset.Y = levelSize.Y - Raylib.GetScreenHeight();
     }
 
     private void Pop()
@@ -110,22 +126,22 @@ public class Builder
             switch (index)
             {
                 case 0:
-                    container.walkingPlatforms.Push(new WalkingPlatform(tempPosition, Raylib.GetMousePosition()));
+                    container.walkingPlatforms.Push(new WalkingPlatform(tempPosition + cameraOffset, Raylib.GetMousePosition() + cameraOffset));
                     break;
                 case 1:
-                    container.speedPlatforms.Push(new SpeedPlatform(tempPosition, Raylib.GetMousePosition()));
+                    container.speedPlatforms.Push(new SpeedPlatform(tempPosition + cameraOffset, Raylib.GetMousePosition() + cameraOffset));
                     break;
                 case 2:
-                    container.jumpPlatforms.Push(new JumpPlatform(tempPosition, Raylib.GetMousePosition()));
+                    container.jumpPlatforms.Push(new JumpPlatform(tempPosition + cameraOffset, Raylib.GetMousePosition()));
                     break;
                 case 3:
-                    container.hurtingPlatforms.Push(new HurtingPlatform(tempPosition, Raylib.GetMousePosition()));
+                    container.hurtingPlatforms.Push(new HurtingPlatform(tempPosition + cameraOffset, Raylib.GetMousePosition()));
                     break;
                 case 4:
-                    container.falsePlatforms.Push(new FalsePlatform(tempPosition, Raylib.GetMousePosition()));
+                    container.falsePlatforms.Push(new FalsePlatform(tempPosition + cameraOffset, Raylib.GetMousePosition()));
                     break;
                 case 5:
-                    container.fallingPlatforms.Push(new FallingPlatform(tempPosition, Raylib.GetMousePosition()));
+                    container.fallingPlatforms.Push(new FallingPlatform(tempPosition + cameraOffset, Raylib.GetMousePosition()));
                     break;
             }
         }
